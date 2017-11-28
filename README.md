@@ -16,6 +16,7 @@ application.properties - 应用配置文件，应用启动会自动读取配置
 ```
 
 * 树形结构如下
+```
 ├── pom.xml
 └── src
     └── main
@@ -49,6 +50,7 @@ application.properties - 应用配置文件，应用启动会自动读取配置
                 │   └── CityMapper.xml
                 └── master
                     └── UserMapper.xml
+```
 * 说明：
 初始框架引自(https://github.com/JeffLi1993/springboot-learning-example), 在此表示感谢。
 后面将陆续加入一些自己的学习过程。
