@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.cluster.ICityDAO">
+	<resultMap id="BaseResultMap" type="org.spring.springboot.domain.CityDto">
+		<result column="id" property="id" />
+		<result column="province_id" property="provinceId" />
+		<result column="city_name" property="cityName" />
+		<result column="description" property="description" />
+	</resultMap>
+
+	<parameterMap id="CityDto" type="org.spring.springboot.domain.CityDto"/>
+
+	<sql id="Base_Column_List">
+		id, province_id, city_name, description
+	</sql>
+
+	<select id="findCityById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from city
+		where id = #{cityId}
+	</select>
+	<insert id="addCity" parameterType="org.spring.springboot.domain.CityDto" useGeneratedKeys="true" keyProperty="id">
+		<!--<selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+           SELECT LAST_INSERT_ID() 
+      	</selectKey>-->
+      
+      insert city(province_id, city_name, description)
+      values (#{provinceId}, #{cityName}, #{description});
+	</insert>
+</mapper>
