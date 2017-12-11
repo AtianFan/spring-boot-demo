@@ -1,5 +1,7 @@
 package org.spring.springboot.dao.master;
 
+import java.util.List;
+
 import org.spring.springboot.domain.UserDto;
 
 /**
@@ -33,4 +35,13 @@ public interface IUserDAO {
 	 * @return <br>
 	 */
 	Integer addUser(UserDto userDto);
+	
+	/**
+	 * 
+	 * Description: 批量增加user<br> 
+	 *  
+	 * @author atian <br>
+	 * @param userList <br>
+	 */
+	void addUserList(List<UserDto> userList);
 }

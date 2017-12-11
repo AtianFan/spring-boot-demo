@@ -1,5 +1,8 @@
 package org.spring.springboot.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.spring.springboot.dao.cluster.ICityDAO;
 import org.spring.springboot.dao.master.IUserDAO;
 import org.spring.springboot.domain.CityDto;
@@ -46,5 +49,23 @@ public class UserServiceImpl implements IUserService {
 		
 		userDAO.addUser(userDto);
 		return userDto.getUserId().intValue();
+	}
+
+	@Override
+	public void addUserList() {
+		List<UserDto> userList = new ArrayList<UserDto>();
+		UserDto user = new UserDto();
+		user.setUserName("Mike");
+		user.setDescription("Mike comes from America.");
+		user.setCityId(3);
+		userList.add(user);
+		
+		UserDto user1 = new UserDto();
+		user1.setUserName("Maria");
+		user1.setDescription("Maria comes from Cuba.");
+		user1.setCityId(4);
+		userList.add(user1);
+		
+		userDAO.addUserList(userList);
 	}
 }

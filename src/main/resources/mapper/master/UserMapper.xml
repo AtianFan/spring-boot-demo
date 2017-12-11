@@ -29,6 +29,12 @@
 		values(#{userName}, #{cityId}, #{description})
 	</insert>
 	
-	<update id=""></update>
-
+	<insert id="addUserList" parameterType="java.util.List" useGeneratedKeys="true"
+	keyColumn="id" keyProperty="userId">
+	insert into user(user_name, city_id, description) values
+		<foreach collection="list" item="user" separator=",">
+			(#{user.userName},#{user.cityId},#{user.description})
+		</foreach>
+	</insert>
+	
 </mapper>

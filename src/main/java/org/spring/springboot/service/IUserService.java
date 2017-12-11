@@ -33,4 +33,13 @@ public interface IUserService {
 	 * @return <br>
 	 */
 	int addUser(UserDto userDto);
+	
+	/**
+	 * 
+	 * Description: 批量加入用户 <br> 
+	 *  
+	 * @author atian <br>
+	 * @param userList <br>
+	 */
+	void addUserList();
 }
